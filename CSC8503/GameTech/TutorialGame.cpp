@@ -618,8 +618,8 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 		{
 			MoveCameraToMenu();
 			std::vector<std::string> text;
-			text.emplace_back("AI");
-			text.emplace_back("Solo");
+			text.emplace_back("Scenarios A and B");
+			text.emplace_back("Scenarios C");
 
 			if (selected < 0)selected = 0;
 			if (selected >= text.size())selected = text.size() - 1;
