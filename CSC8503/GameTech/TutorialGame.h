@@ -129,7 +129,7 @@ namespace NCL {
 			void gameReset(int model);
 			int win = 0;
 			int lose = 0;
-			int total = 2;
+			int total = 10;
 
 			void initEventHandler();
 

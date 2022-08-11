@@ -53,7 +53,6 @@ TutorialGame::TutorialGame() {
 	envB->second.emplace_back(_pet->get_state_machine());
 	envB->second.emplace_back(dynamic_cast<CSC8599::StateMachine*>(debug_state_machine->GetComponent("DebugB")));
 	AdaptiveDebugSystem::getInstance()->insert(envB);
-
 }
 
 /*
@@ -261,8 +260,8 @@ void TutorialGame::InitCamera() {
 	world->GetMainCamera()->SetNearPlane(0.1f);
 	world->GetMainCamera()->SetFarPlane(500.0f);
 	world->GetMainCamera()->SetPitch(-15.0f);
-	world->GetMainCamera()->SetYaw(315.0f);
-	world->GetMainCamera()->SetPosition(Vector3(-60, 40, 60));
+	world->GetMainCamera()->SetYaw(330.0f);
+	world->GetMainCamera()->SetPosition(Vector3(-60, 40, 120));
 	lockedObject = nullptr;
 }
 
@@ -806,7 +805,6 @@ void NCL::CSC8503::TutorialGame::gameReset(int model)
 	EventSystem::getInstance()->Reset();
 	initEventHandler();
 	InitWorld();
-	useDebugSM = true;
 	if(model==0)
 	{
 		localPlayer->set_user_controller(new PlayerAIController(localPlayer));

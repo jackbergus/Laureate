@@ -34,12 +34,12 @@ Pet::Pet(Character* _owner) :owner(_owner)
 		});
 	EventSystem::getInstance()->RegisterEventHandler("player_over_threat", [this](EVENT* p_event)->void
 		{
-			/*const auto _target = dynamic_cast<Monster*>(target);
+			const auto _target = dynamic_cast<Monster*>(target);
 			if (_target)
 			{
 				_target->get_taunt(GetWorldID());
 				EventSystem::getInstance()->PushEvent("pet_taunt", 0);
-			}*/
+			}
 		});
 	EventSystem::getInstance()->RegisterEventHandler("fix_DebugB", [this](EVENT* p_event)->void
 		{
