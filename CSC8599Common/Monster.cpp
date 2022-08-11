@@ -29,7 +29,8 @@ void Monster::get_taunt(const int source_id)
 void NCL::CSC8599::Monster::update(float dt)
 {
 	Character::update(dt);
-	monster_state_machine->Update(dt);
+	if(useStateMachine)
+		monster_state_machine->Update(dt);
 }
 
 

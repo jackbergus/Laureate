@@ -126,10 +126,10 @@ namespace NCL {
 			NCL::CSC8599::Pet* _pet = nullptr;
 			NCL::CSC8599::Dragon* _dragon = nullptr;
 			//test
-			void gameReset();
+			void gameReset(int model);
 			int win = 0;
 			int lose = 0;
-			int total = 10;
+			int total = 2;
 
 			void initEventHandler();
 

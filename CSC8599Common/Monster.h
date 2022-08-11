@@ -17,6 +17,7 @@ namespace NCL {
 			{
 				return monster_state_machine;
 			}
+			bool useStateMachine = true;
 
 		private:
 			void attack_update(float dt) override;

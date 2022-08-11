@@ -35,23 +35,24 @@ TutorialGame::TutorialGame() {
 	initStateMachine();
 	InitialiseAssets();
 	initEventHandler();
+
 	auto envC = new Environment();
 	envC->first = "DebugC";
 	envC->second.emplace_back(_monster->get_monster_state_machine());
 	envC->second.emplace_back(dynamic_cast<CSC8599::StateMachine*>(debug_state_machine->GetComponent("DebugC")));
 	AdaptiveDebugSystem::getInstance()->insert(envC);
 
-	/*auto envA = new Environment();
+	auto envA = new Environment();
 	envA->first = "DebugA";
 	envA->second.emplace_back(dynamic_cast<CSC8599::StateMachine*>(debug_state_machine->GetComponent("DebugA")));
-	AdaptiveDebugSystem::getInstance()->insert(envA);*/
+	AdaptiveDebugSystem::getInstance()->insert(envA);
 
-	/*auto envB = new Environment();
+	auto envB = new Environment();
 	envB->first = "DebugB";
 	envB->second.emplace_back(localPlayer->get_state_machine());
 	envB->second.emplace_back(_pet->get_state_machine());
 	envB->second.emplace_back(dynamic_cast<CSC8599::StateMachine*>(debug_state_machine->GetComponent("DebugB")));
-	AdaptiveDebugSystem::getInstance()->insert(envB);*/
+	AdaptiveDebugSystem::getInstance()->insert(envB);
 
 }
 
@@ -617,8 +618,7 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 		{
 			MoveCameraToMenu();
 			std::vector<std::string> text;
-			text.emplace_back("Debug off");
-			text.emplace_back("Debug on");
+			text.emplace_back("AI");
 			text.emplace_back("Solo");
 
 			if (selected < 0)selected = 0;
@@ -633,22 +633,10 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 				switch (selected)
 				{
 				case 0:
-					gameReset();
-					localPlayer->set_user_controller(new PlayerAIController(localPlayer));
-					useDebugSM = false;
-					EventSystem::getInstance()->PushEvent("GameStart", 0);
+					gameReset(0);
 					break;
 				case 1:
-					gameReset();
-					localPlayer->set_user_controller(new PlayerAIController(localPlayer));
-					useDebugSM = true;
-					EventSystem::getInstance()->PushEvent("GameStart", 0);
-					break;
-				case 2:
-					gameReset();
-					localPlayer->set_user_controller(new PlayerController());
-					useDebugSM = true;
-					EventSystem::getInstance()->PushEvent("GameStart", 0);
+					gameReset(1);
 					break;
 				default:
 					break;
@@ -745,7 +733,7 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 		game_state_machine->GetComponent("running"),
 		[this](EVENT* p_event)->bool
 		{
-			gameReset();
+			gameReset(0);
 			localPlayer->set_user_controller(new PlayerAIController(localPlayer));
 			return true;
 		},
@@ -762,6 +750,28 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 			return true;
 		},
 		"GameInit"
+			));
+
+	game_state_machine->AddTransition(new CSC8599::StateTransition(
+		game_state_machine->GetComponent("running"),
+		game_state_machine->GetComponent("end"),
+		[this](EVENT* p_event)->bool
+		{
+			if (EventSystem::getInstance()->HasHappened("player_die"))
+			{
+				lose++;
+				return true;
+			}
+			else if (EventSystem::getInstance()->HasHappened("MonsterDie"))
+			{
+				win++;
+				return true;
+			}
+			else
+				return false;
+				
+		},
+		""
 			));
 
 	debug_state_machine = new DebugStateMachine();
@@ -784,18 +794,30 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 	sigmaAll = std::unordered_set<std::string>{ "init", "summon_dragon", "arrival","dragon_die" ,"other"};
 	auto DebugC = StateMachineParser::getInstance()->parse(formula, sigmaAll);
 
-	//debug_state_machine->AddComponent("DebugA", DebugA);
-	//debug_state_machine->AddComponent("DebugB", DebugB);
+	debug_state_machine->AddComponent("DebugA", DebugA);
+	debug_state_machine->AddComponent("DebugB", DebugB);
 	debug_state_machine->AddComponent("DebugC", DebugC);
 
 }
 
-void NCL::CSC8503::TutorialGame::gameReset()
+void NCL::CSC8503::TutorialGame::gameReset(int model)
 {
 	InitCamera();
 	EventSystem::getInstance()->Reset();
 	initEventHandler();
 	InitWorld();
+	useDebugSM = true;
+	if(model==0)
+	{
+		localPlayer->set_user_controller(new PlayerAIController(localPlayer));
+		localPlayer->GetTransform().SetPosition(Vector3(-50, 8, 45));
+		_pet->GetTransform().SetPosition(Vector3(-50, 8, 60));
+		_monster->useStateMachine = false;
+	}else if(model==1)
+	{
+		localPlayer->set_user_controller(new PlayerController());
+	}
+	EventSystem::getInstance()->PushEvent("GameStart", 0);
 }
 
 void NCL::CSC8503::TutorialGame::initEventHandler()

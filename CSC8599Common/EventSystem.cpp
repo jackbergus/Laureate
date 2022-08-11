@@ -28,7 +28,7 @@ NCL::CSC8599::EventSystem::EventSystem()
 	init();
 }
 
-void NCL::CSC8599::EventSystem::Update(float dt)
+void NCL::CSC8599::EventSystem::	Update(float dt)
 {
 	if (!(eventQueueDelay.empty()))
 	{
