@@ -9,7 +9,7 @@ namespace NCL {
 		class StateMachine : public AbstractStateMachine {
 		public:
 			StateMachine(const std::string& name, AbstractComponent* defaultComponent,AbstractComponent* exp=nullptr)
-				:activeComponent(defaultComponent), expComponent(exp) {
+				:activeComponent(defaultComponent), expComponent(exp){
 				AddComponent(name, defaultComponent);
 			}
 			~StateMachine() override { delete activeComponent; activeComponent = nullptr; }

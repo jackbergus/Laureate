@@ -720,8 +720,9 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 	game_state_machine->AddTransition(new CSC8599::StateTransition(
 		game_state_machine->GetComponent("init"),
 		game_state_machine->GetComponent("running"),
-		[](EVENT* p_event)->bool
+		[this](EVENT* p_event)->bool
 		{
+			InitCamera();
 			return true;
 		},
 		"GameStart"
@@ -776,8 +777,8 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 	debug_state_machine = new DebugStateMachine();
 
 	auto formula = ltlf::Box(ltlf::Implies(ltlf::Act("player_over_threat"),
-		ltlf::Diamond(ltlf::And(ltlf::Act("pet_taunt"), ltlf::Act("player_die", true)))));
-	auto sigmaAll = std::unordered_set<std::string>{ "player_over_threat", "pet_taunt", "player_die","other"};
+		ltlf::Next(ltlf::Act("pet_taunt"))));
+	auto sigmaAll = std::unordered_set<std::string>{ "player_over_threat", "pet_taunt" ,"other" };
 	auto DebugA = StateMachineParser::getInstance()->parse(formula, sigmaAll);
 
 	formula = ltlf::Box(ltlf::Implies(ltlf::Act("player_die"),
@@ -801,15 +802,15 @@ void NCL::CSC8503::TutorialGame::initStateMachine()
 
 void NCL::CSC8503::TutorialGame::gameReset(int model)
 {
-	InitCamera();
+	//InitCamera();
 	EventSystem::getInstance()->Reset();
 	initEventHandler();
 	InitWorld();
 	if(model==0)
 	{
 		localPlayer->set_user_controller(new PlayerAIController(localPlayer));
-		localPlayer->GetTransform().SetPosition(Vector3(-50, 8, 45));
-		_pet->GetTransform().SetPosition(Vector3(-50, 8, 60));
+		localPlayer->GetTransform().SetPosition(Vector3(-50, 8, 35));
+		_pet->GetTransform().SetPosition(Vector3(-50, 8, 70));
 		_monster->useStateMachine = false;
 	}else if(model==1)
 	{

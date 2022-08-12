@@ -5,10 +5,11 @@ extern EVENT_DEFINE g_Events[] =
 {
 	{"ThreatChanged"},
 	{"on_hit"},
-	{"player_over_threat"},
+	{"player_over_threat",true},
 	{"player_die"},
 	{"pet_die"},
 	{"pet_taunt",true},
+	{"fix_DebugA"},
 	{"fix_DebugB"},
 	{"MonsterDie"},
 	{"GameStart"},
@@ -117,6 +118,8 @@ EVENT* NCL::CSC8599::EventSystem::HasHappened(const std::string& name)
 
 void EventSystem::Reset()
 {
+	eventQueue.clear();
+	eventQueueDelay.clear();
 	for(auto i:eventDefContainer)
 	{
 		i.second->listFunc.clear();

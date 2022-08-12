@@ -7,6 +7,8 @@
 #include "../CSC8503/CSC8503Common/Debug.h"
 #include "Monster.h"
 #include <thread>
+
+#include "../CSC8503/CSC8503Common/GameWorld.h"
 static  std::string models[3] = {"passive","assist","protect"};
 void tesk()
 {}
@@ -32,10 +34,10 @@ Pet::Pet(Character* _owner) :owner(_owner)
 			}
 
 		});
-	EventSystem::getInstance()->RegisterEventHandler("player_over_threat", [this](EVENT* p_event)->void
+	EventSystem::getInstance()->RegisterEventHandler("fix_DebugA", [this](EVENT* p_event)->void
 		{
 			const auto _target = dynamic_cast<Monster*>(target);
-			if (_target)
+			if (_target)  
 			{
 				_target->get_taunt(GetWorldID());
 				EventSystem::getInstance()->PushEvent("pet_taunt", 0);

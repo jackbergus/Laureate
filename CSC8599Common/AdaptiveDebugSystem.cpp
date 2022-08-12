@@ -54,18 +54,17 @@ void NCL::CSC8599::AdaptiveDebugSystem::adjust(Path path, StateMachine* state_ma
 				break;
 			}
 		}
-		for (auto& k = destNodeRange.first; k != destNodeRange.second; ++k)
-		{
-			if (k->second->GetDestinationState() == currentNode)
-			{
-				k->second->enable = false;// turn off previous trans
-				break;
-			}
-		}
+		//for (auto& k = destNodeRange.first; k != destNodeRange.second; ++k)
+		//{
+		//	if (k->second->GetDestinationState() == currentNode)
+		//	{
+		//		k->second->enable = false;// turn off previous trans
+		//		break;
+		//	}
+		//}
 	}
 	state_machine->SetActiveComponent(path.top());
 }
-
 
 Environment* AdaptiveDebugSystem::find_deadlock_env()
 {
