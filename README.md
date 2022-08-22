@@ -18,9 +18,9 @@ Please watch the project [demonstration video](https://www.youtube.com/watch?v=C
 [Project running demo video](https://www.youtube.com/watch?v=_rQdr6ZwCXE).
 
 ## Install
-
-[Boost.Python](https://www.boost.org/doc/libs/1_70_0/libs/python/doc/html/index.html) is used in the project. To run this project, you need to install dependencies first.
-Compile please select the release version.
+1. Set GameTech as startup project
+2. Set tThe compiled version to release X64
+3. Compile and run the program
 ## Keys
 
 |  Keys   | Useage  |
