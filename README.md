@@ -18,8 +18,8 @@ Please watch the project [demonstration video](https://www.youtube.com/watch?v=C
 [Project running demo video](https://www.youtube.com/watch?v=_rQdr6ZwCXE).
 
 ## Install
-1. Set GameTech as startup project
-2. Set tThe compiled version to release X64
+1. Set **GameTech as startup project
+2. Set tThe compiled version to **release X64
 3. Compile and run the program
 ## Keys
 
@@ -30,7 +30,7 @@ Please watch the project [demonstration video](https://www.youtube.com/watch?v=C
 | F3  | Print event queue |
 | F4  | Toggle debug state machine |
 | W,A,S,D,shift,space  | Camera move |
-| up,down,left,right  | player move |
+| up,down,left,right  | Player move |
 | z  | Attack |
 | x  | Stop |
 | c  | Toggle the pet strategy mode |
