@@ -83,7 +83,7 @@
     <IncludePath>$(SolutionDir)\Plugins\OpenGLRendering;$(SolutionDir)\Plugins\Networking-ENet\include;$(SolutionDir)\Plugins\Python-3.9.0\Python-3.9.0\Include;$(SolutionDir)\Plugins\Python-3.9.0\Python-3.9.0\PC;$(SolutionDir)\Plugins\json-3.10.5\include;C:\boost_1_79_0</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath);$(SolutionDir)\Plugins\Python-3.9.0\Python-3.9.0\libs</LibraryPath>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath);$(SolutionDir)\Plugins\Python-3.9.0\Python-3.9.0\libs;$(SolutionDir)\Plugins\libs</LibraryPath>
     <IncludePath>$(SolutionDir)\Plugins\OpenGLRendering;$(SolutionDir)\Plugins\Networking-ENet\include;$(SolutionDir)\Plugins\Python-3.9.0\Python-3.9.0\Include;$(SolutionDir)\Plugins\Python-3.9.0\Python-3.9.0\PC;$(SolutionDir)\Plugins\json-3.10.5\include;$(SolutionDir)\Plugins\boost_1_79_0</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
