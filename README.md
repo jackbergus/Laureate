@@ -11,7 +11,9 @@
 
 ## Introduction
 
-This is the project code repository for the CSC8599 dissertation. Please watch the project [demonstration video](https://www.youtube.com/watch?v=_rQdr6ZwCXE).
+This is the project code repository for the CSC8599 dissertation. 
+Please watch the project [demonstration video](https://www.youtube.com/watch?v=CyQRCQ8p-n4&t=39s). 
+[Project running demo video](https://www.youtube.com/watch?v=_rQdr6ZwCXE).
 
 ## Install
 
