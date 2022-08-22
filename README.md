@@ -16,7 +16,7 @@ This is the project code repository for the CSC8599 dissertation.
 ## Install
 
 [Boost.Python](https://www.boost.org/doc/libs/1_70_0/libs/python/doc/html/index.html) is used in the project. To run this project, you need to install dependencies first.
-
+Compile please select the release version.
 ## Keys
 
 |  Keys   | Useage  |
