@@ -19,7 +19,7 @@ Please watch the project [demonstration video](https://www.youtube.com/watch?v=C
 
 ## Install
 1. Set **GameTech** as startup project
-2. Set tThe compiled version to **release X64**
+2. Set the compiled version to **release X64**
 3. Compile and run the program
 ## Keys
 
