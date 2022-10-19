@@ -8,7 +8,7 @@
 #include "Monster.h"
 #include <thread>
 
-#include "../CSC8503/CSC8503Common/GameWorld.h"
+//#include "../CSC8503/CSC8503Common/GameWorld.h"
 static  std::string models[3] = {"passive","assist","protect"};
 void tesk()
 {}

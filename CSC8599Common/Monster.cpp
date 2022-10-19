@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Monster.h"
 #include "EventSystem.h"
-#include "../CSC8503/CSC8503Common/GameWorld.h"
+//#include "../CSC8503/CSC8503Common/GameWorld.h"
 #include "State.h"
 #include "StateTransition.h"
 Monster::Monster()

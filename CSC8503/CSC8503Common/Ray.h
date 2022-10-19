@@ -5,13 +5,13 @@
 namespace NCL {
 	namespace Maths {
 		struct RayCollision {
-			void*		node;			//Node that was hit ÕâÌõÉäÏßÓĞ¿ÉÄÜ»áºÍÈÎÒâÀàĞÍµÄÎïÌåÅö×²
+			void*		node;			//Node that was hit ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¿ï¿½ï¿½Ü»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²
 			Vector3		collidedAt;		//WORLD SPACE position of the collision!
 			float		rayDistance;
 
 			RayCollision() {
 				node			= nullptr;
-				rayDistance		= FLT_MAX;
+				rayDistance		= std::numeric_limits<float>::max();
 			}
 		};
 
@@ -33,7 +33,7 @@ namespace NCL {
 		protected:
 			Vector3 position;	//World space position
 			Vector3 direction;	//Normalised world space direction
-			Layers layer; //ÉäÏßµÄÄ¿±êlayer
+			Layers layer; //ï¿½ï¿½ï¿½ßµï¿½Ä¿ï¿½ï¿½layer
 		};
 	}
 }

@@ -1,5 +1,8 @@
 #pragma once
 #include "Vector2.h"
+#ifdef MAX_INPUT
+#undef MAX_INPUT
+#endif
 enum Buttons
 {
 	ATTACK,

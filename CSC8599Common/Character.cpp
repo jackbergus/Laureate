@@ -6,7 +6,8 @@
 #include "StateMachinePlus.h"
 #include "EventSystem.h"
 #include "StateTransition.h"
-#include "../CSC8503/CSC8503Common/GameWorld.h"
+#include <GameTimer.h>
+//#include "../CSC8503/CSC8503Common/GameWorld.h"
 
 
 NCL::CSC8599::Character::Character()
@@ -39,6 +40,8 @@ void NCL::CSC8599::Character::get_damage(const int source_id,const int damage)
 	set_attr("health", data);
 	EventSystem::getInstance()->PushEvent("on_hit", 2, std::to_string(source_id).c_str(),std::to_string(worldID).c_str());
 }
+
+#include <GameWorld.h>
 
 bool Character::switch_target(const int target_id)
 {
