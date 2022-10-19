@@ -1,4 +1,0 @@
-/home/giacomo/Scaricati/jetbrains/CLion-2022.1.3/clion-2022.1.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=make -G "CodeBlocks - Unix Makefiles" -S /home/giacomo/projects/VideoGameDebugging -B /home/giacomo/projects/VideoGameDebugging/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /home/giacomo/projects/VideoGameDebugging/cmake-build-debug
